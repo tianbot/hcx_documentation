@@ -1,4 +1,3 @@
-
 # 如何连接 HCX 机器人
 
 ```{toctree}
@@ -22,6 +21,28 @@
 
 ## 网络连接
 
+```{tip}
+请确保电脑连接到了机器人自建的`HCX-00000x`热点下。
+![](../../_static/connect-wifi.png)
+```
+
+### ssh 连接
+然后使用以下命令 ssh 连接到机器人：
+```bash
+ssh tianbot@192.168.1.100  # 密码为 ros
+```
+
+### Rustdesk 连接
+
+- 详细流程请参考[使用 Rustdesk 远程连接](https://docs.tianbot.com/basic/rustdesk.html)
+
+```{note}
+![](../../_static/rustdesk.png)
+
+rustdesk 登录密码 `Tianbot_2016`
+![](../../_static/rustdesk_login.png)
+```
+
 | 机器人 IP 地址 | 对应设备 |
 | :---: | :---: |
 | 192.168.1.2    |  4G 路由器地址，用于连接机器人  |
@@ -31,6 +52,8 @@
 
 ```{tip}
 请确保机器人与电脑在同一网络下，并且能够通过 IP 地址访问。
+
+- 机器人默认用户名：`tianbot`，默认密码：`ros`
 ```
 
 ## ROS2 多机通信 
