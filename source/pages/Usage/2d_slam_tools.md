@@ -12,6 +12,14 @@
 
 ## 2D 激光 SLAM 建图
 
+```{note}
+首先请确保运行了如下命令，正确启动了机器人整机 ROS 驱动
+```
+
+```bash
+ros2 launch diablo_bringup diablo_bringup.launch.py
+```
+
 ### Gmapping 建图
 
 
@@ -75,7 +83,7 @@ tianbot@diablo:~$ ros2 launch diablo_slam map_save.launch.py
 ```{note}
 保存地图时，请确保机器人已经停止运动，否则保存的地图可能不完整。
 保存时，`终端日志`中会显示地图文件的将要保存到的`全局路径`，例如：
-- `Saving map from 'map' topic to '/home/xxx/diablo_ros2/diablo_navigation2/maps/` 
+- `Saving map from 'map' topic to '/home/tianbot/diablo_ws/src/diablo_ros2/diablo_navigation2/maps/` 
 目录下。
 
 如果保存的地图文件较大，保存过程可能需要一些时间，请耐心等待。有一定可能保存失败，请重新尝试。

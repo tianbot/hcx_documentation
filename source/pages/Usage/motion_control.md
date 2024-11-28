@@ -12,16 +12,35 @@
 
 ## 遥控器控制
 
-![](../../_static/remote_control_1.png)
+![](../../_static/remote_control.png)
+<!-- ![](../../_static/remote_control_1.png)
 ![](../../_static/remote_control_2.png)
-![](../../_static/remote_control_3.png)
+![](../../_static/remote_control_3.png) -->
 
 ```{tip}
 - 更多详细内容可以参考，[刑天用户手册](https://flbook.com.cn/c/ktbeSJAUxf?cckey=e488b34d#page/10)
 ```
 
 ## ROS 控制
-在`ROS`部分，我们使用`geometry_msgs/Twist`消息来控制机器人的运动，该消息包含线速度和角速度。在发布方式上，有如下三种：
+在`ROS`部分，我们使用`geometry_msgs/Twist`消息来控制机器人的运动，该消息包含线速度和角速度。
+
+```{note}
+首先请确保运行了如下命令，正确启动了机器人整机 ROS 驱动
+```
+
+```bash
+ros2 launch diablo_bringup diablo_bringup.launch.py
+```
+
+```{tip}
+发现`rviz`界面全局轨迹正常生成，但是小车未动，请检查遥控器上是否禁用遥控模式
+```
+
+```{note}
+一旦发现机器人快要发生碰撞或产生危险时，请立即将遥控器`右拨动开关扳至左侧或中侧`以切换到`遥控接管模式（ROS控制禁用模式）`
+```
+
+在发布方式上，有如下三种：
 
 ### 话题终端发布
 
@@ -74,30 +93,4 @@ ros2 run diablo_teleop teleop_node
 - g：太空步结束。dance mode
 - c：跳跃模式。Jump mode
 - `：退出虚拟遥控器。
-```
-
-```
-ros2 run diablo_bringup teleop.py
-```
-
-```{warning}
-在任何情况下你可以按下数字键 '1' 来激活紧急模式，该模式下只允许接收键盘控制而会屏蔽导航消息，在确保机器人安全后通过数字 '2' 键退出
-控制模式操作如下：
-- 使用 w a s d 控制机器人的前进后退与旋转
-- 使用数字3键激活mode_mark模式(True),当且仅当该模式为True时,以下的按键才生效,使用数字4键关闭(False)。
-  - z键:触发stand_mode让机器人站立,注意:在ROS下机器人初次站立会有一个起跳的动作,请保证周围留有足够空间
-  - x键:卧倒
-  - c键:激活跳跃模式
-  - f键:激活跳舞模式
-  - g键:关闭跳舞模式
-- 当激活站立模式后,使用4键关闭mode_mark模式你可以调整机器人的姿态。
-  - u键:调整低头
-  - o键:调整抬头
-  - i键:恢复原位
-  - j键:站立高度最高值 1.0
-  - k键:站立高度中间值 0.5
-  - l键:站立高度最低值 0.0
-  - q键:使机器人左倾 0.1
-  - e键:使机器人右倾 0.1 如需调整具体数值请在源码中修改
-使用数字键 '0' 退出!!!
 ```
