@@ -24,9 +24,9 @@ copyright = '2024, tianbot'
 author = 'tianbot'
 
 # The short X.Y version
-version = ''
+version = '0.1.0'
 # The full version, including alpha/beta/rc tags
-release = 'v0.5.0'
+release = 'lastest'
 
 
 # -- General configuration ---------------------------------------------------
@@ -65,6 +65,9 @@ master_doc = 'index'
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = 'zh_CN'
+html_search_language = 'zh_CN'
+source_encoding = 'UTF-8'
+locale_dirs = ['locales', './locale']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -72,7 +75,7 @@ language = 'zh_CN'
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
+pygments_style = 'sphinx'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -88,8 +91,8 @@ html_theme = 'sphinx_rtd_theme'
 #
 html_theme_options = {
     'analytics_anonymize_ip': False,
-    'logo_only': True,
-    # 'display_version': True,
+    # 'logo_only': True,
+    'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     'vcs_pageview_mode': '',
@@ -103,8 +106,8 @@ html_theme_options = {
     'titles_only': False
 }
 
-html_logo = "./_static/logo.ico"
-html_favicon = "./_static/logo.ico"
+html_logo = "./logo.png"
+html_favicon = "./logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -124,12 +127,10 @@ html_js_files = [
 #
 # html_sidebars = {}
 
-
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'docsdoc'
-
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -145,6 +146,12 @@ latex_elements = {
     # Additional stuff for the LaTeX preamble.
     #
     # 'preamble': '',
+   'preamble': '''
+\\hypersetup{unicode=true}
+\\usepackage{CJKutf8}
+\\AtBeginDocument{\\begin{CJK}{UTF8}{gbsn}}
+\\AtEndDocument{\\end{CJK}}
+''',
 
     # Latex figure (float) alignment
     #
@@ -155,10 +162,9 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'docs.tex', 'docs Documentation',
+    (master_doc, 'docs.tex', 'HCX Robot Documentation',
      'tianbot', 'manual'),
 ]
-
 
 # -- Options for manual page output ------------------------------------------
 
@@ -168,7 +174,6 @@ man_pages = [
     (master_doc, 'docs', 'docs Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -181,11 +186,13 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
 # -- Options for Epub output -------------------------------------------------
 
 # Bibliographic Dublin Core info.
 epub_title = project
+epub_author = author
+epub_publisher = author
+epub_copyright = copyright
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
