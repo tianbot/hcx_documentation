@@ -10,6 +10,13 @@ sphinx-build -M html ./source/ ./build/  # 生成html
 make html
 ```
 
+## make pdf
+```bash
+chmod +x install.sh
+./build.sh
+make latexpdf
+```
+
 ## reference
 
 - [sphinx](https://www.sphinx-doc.org/zh-cn/master/tutorial/)
