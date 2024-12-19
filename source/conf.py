@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# !/usr/bin/env python3
 #
 # Configuration file for the Sphinx documentation builder.
 #
@@ -11,23 +12,23 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
 
+import datetime
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'hcx_documentation'
+project = 'HCX Robot Documentation'
+subject = 'A manual of HCX Robot'
 copyright = '2024, tianbot'
 author = 'tianbot'
-
+created_time = '2024-10-01'
 # The short X.Y version
-version = '0.1.0'
+version = u''
 # The full version, including alpha/beta/rc tags
-release = 'lastest'
-
+release = u'1.1'
 
 # -- General configuration ---------------------------------------------------
 
@@ -43,6 +44,7 @@ extensions = [
     "sphinxcontrib.mermaid",
     "sphinx_copybutton",
     "sphinx.ext.autodoc",
+    "docxbuilder",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -77,6 +79,23 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# -- Extension .docx configuration -------------------------------------------------
+# refer to : https://github.com/amedama41/docxbuilder
+# https://github.com/amedama41/docxbuilder/blob/master/docs/source/conf.py
+docx_documents = [
+    ('index', 'hcx_documentation.docx', {
+         'title': project,
+         'creator': author,
+         'created': created_time,
+         'subject': subject,
+         'keywords': ['sphinx'],
+         'publishDate': datetime.date.today(),
+         'version': release,
+     }, True),
+]
+
+docx_pagebreak_before_section = 1
+docx_table_options = {'row_splittable': False}
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -162,8 +181,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'docs.tex', 'HCX Robot Documentation',
-     'tianbot', 'manual'),
+    (master_doc, 'docs.tex', project,
+     author, subject),
 ]
 
 # -- Options for manual page output ------------------------------------------
