@@ -27,12 +27,13 @@
 ```{note}
 热点密码为 `12345678`。
 ```
+
 ![](../../_static/connect-wifi.png)
-```
 
 ### ssh 连接
+
 然后使用以下命令 ssh 连接到机器人：
-```bash
+```
 ssh tianbot@192.168.1.100  # 密码为 ros
 ```
 
@@ -74,12 +75,12 @@ rustdesk 登录密码 `Tianbot_2016`
 将以下命令添加到 `~/.bashrc` 中，以确保您可以通过 LAN 访问 ROS Robots 节点
 ```
 
-```bash
+```
 export ROS_DOMAIN_ID=5 
 ```
 
 采用如下操作检查 ROS2 DOMAIN 通信是否正常
-```bash
+```
 ros2 topic list
 ```
 

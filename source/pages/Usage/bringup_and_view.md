@@ -16,7 +16,7 @@
 - 启动传感器驱动
 - 启动外设驱动
 
-```bash
+```
 ros2 launch diablo_bringup diablo_bringup.launch.py
 ```
 
@@ -78,8 +78,8 @@ ROS 驱动成功启动后，LED 氛围灯会常亮，表示驱动启动成功。
 
 ## 在 rviz 中查看传感器数据
 
-### 1. 启动 rviz
-```bash
+### 启动 rviz
+```
 ros2 launch diablo_rviz view_robot.launch.py 
 ```
 
@@ -87,7 +87,7 @@ ros2 launch diablo_rviz view_robot.launch.py
 这一步需要先正确上电启动机器人，否则 rviz 无法获取传感器数据
 ```
 
-### 2. 查看机器人状态
+### 查看机器人状态
 点击左侧导航栏的“可视化”按钮，进入可视化界面，可以看到当前机器人所连接的传感器数据。
 
 ![可视化界面](../../_static/view_robot_and_sensor.png)

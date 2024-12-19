@@ -16,14 +16,14 @@
 首先请确保运行了如下命令，正确启动了机器人整机 ROS 驱动
 ```
 
-```bash
+```
 ros2 launch diablo_bringup diablo_bringup.launch.py
 ```
 
 ### Gmapping 建图
 
 
-```bash
+```
 ros2 launch diablo_slam gmapping.launch.py 
 ```
 
@@ -31,14 +31,14 @@ ros2 launch diablo_slam gmapping.launch.py
 
 ### SLAM_TOOLBOX 建图
 
-```bash
+```
 ros2 launch diablo_slam slam_toolbox.launch.py
 ```
 
 ![](../../_static/slam_toolbox.png)
 ### Cartographer 建图
 
-```bash
+```
 ros2 launch diablo_slam cartographer_2d.launch.py
 ```
 
@@ -46,18 +46,18 @@ ros2 launch diablo_slam cartographer_2d.launch.py
 
 ## 查看 2D 栅格地图
 
-```bash
+```
 ros2 launch diablo_rviz view_map.launch.py
 ```
 
 ## 保存并 2D 栅格地图
 
-```bash
+```
 ros2 launch diablo_slam map_save.launch.py 
 ```
 
 保存时，`终端日志`中会显示地图文件的将要保存到的`全局路径`，例如：
-```bash
+```
 tianbot@diablo:~$ ros2 launch diablo_slam map_save.launch.py 
 [INFO] [launch]: All log files can be found below /home/tianbot/.ros/log/2024-11-14-16-17-21-378905-tianbot-483835
 [INFO] [launch]: Default logging verbosity is set to INFO

@@ -13,9 +13,6 @@
 ## 遥控器控制
 
 ![](../../_static/remote_control.png)
-<!-- ![](../../_static/remote_control_1.png)
-![](../../_static/remote_control_2.png)
-![](../../_static/remote_control_3.png) -->
 
 ```{tip}
 - 更多详细内容可以参考，[刑天用户手册](https://flbook.com.cn/c/ktbeSJAUxf?cckey=e488b34d#page/10)
@@ -28,7 +25,7 @@
 首先请确保运行了如下命令，正确启动了机器人整机 ROS 驱动
 ```
 
-```bash
+```
 ros2 launch diablo_bringup diablo_bringup.launch.py
 ```
 
@@ -44,7 +41,7 @@ ros2 launch diablo_bringup diablo_bringup.launch.py
 
 ### 话题终端发布
 
-```bash
+```
 ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.0}}" -r 10
 ```
 
@@ -65,7 +62,7 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.
 
 可以使用`teleop`包来控制机器人，运行如下命令即可：
 
-```bash
+```
 ros2 run diablo_teleop teleop_node
 ```
 
@@ -93,4 +90,22 @@ ros2 run diablo_teleop teleop_node
 - g：太空步结束。dance mode
 - c：跳跃模式。Jump mode
 - `：退出虚拟遥控器。
+```
+
+```{tip}
+假设你希望让机器人站起，你可以先按`z`键，然后按`j`键，让机器人站高；如果希望让机器人蹲下，可以按下 h 键，然后再按`x`键，让机器人坐下。
+```
+
+### 动作流控制
+
+我们内置了一套 HCX 机器人的站起和坐下动作流，你可以通过以下命令来触发机器人执行动作流。
+
+#### 机器人站起
+```
+ros2 topic pub /stand std_msgs/msg/String "{data: standup}" --once
+```
+
+#### 机器人坐下
+```
+ros2 topic pub /stand std_msgs/msg/String "{data: sitdown}" --once
 ```

@@ -18,13 +18,13 @@ diablo_navigation 基于 ROS2 的 Navigation2 框架，Navigation2 框架提供�
 首先请确保运行了如下命令，正确启动了机器人整机 ROS 驱动
 ```
 
-```bash
+```
 ros2 launch diablo_bringup diablo_bringup.launch.py
 ```
 
 ### 启动导航节点
 
-```bash
+```
 ros2 launch diablo_navigation2 nav2.launch.py use_map:=xxxx  # 启动导航节点，并指定地图文件
 ```
 
